@@ -1,15 +1,14 @@
 import React from "react";
-import PizzaCSS from "./Pizza.module.css";
-import { useStateDispatch } from "./AppState";
 import { Pizza } from "../types";
+import SpecialOfferCSS from "./SpecialOffer.module.css";
 import { AddToCartProps, withAddToCart } from "./AddToCart";
 
 interface Props extends AddToCartProps {
   pizza: Pizza;
 }
 
-const PizzaItem: React.FC<Props> = ({ pizza, addToCart }) => {
-  const handleAddToCartClick = () => {
+const SpecialOffer: React.FC<Props> = ({ pizza, addToCart }) => {
+  const hanfleAddToCartClick = () => {
     addToCart({
       id: pizza.id,
       name: pizza.name,
@@ -18,15 +17,15 @@ const PizzaItem: React.FC<Props> = ({ pizza, addToCart }) => {
   };
 
   return (
-    <li className={PizzaCSS.container}>
+    <div className={SpecialOfferCSS.container}>
       <h2>{pizza.name}</h2>
       <p>{pizza.description}</p>
       <p>{pizza.price}</p>
-      <button type='button' onClick={handleAddToCartClick}>
+      <button type='button' onClick={hanfleAddToCartClick}>
         Add to Cart
       </button>
-    </li>
+    </div>
   );
 };
 
-export default withAddToCart(PizzaItem);
+export default withAddToCart(SpecialOffer);
